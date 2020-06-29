@@ -6,10 +6,10 @@
  */
 export function sortStrings(arr, param = 'asc') {
   let sortedArray = arr.slice();
+  let compareRes = {'asc': -1, 'desc': 1}
   for (let i = 0; i < sortedArray.length; i++) {
     for (let j = 0; j < sortedArray.length; j++) {
-      if (param === 'asc' && sortedArray[i].localeCompare(sortedArray[j], [], {'caseFirst':  'upper'}) < 0 ||
-        param === 'desc' && sortedArray[i].localeCompare(sortedArray[j], [], {'caseFirst':  'upper'}) > 0)
+      if (sortedArray[i].localeCompare(sortedArray[j], [], {'caseFirst':  'upper'}) === compareRes[param])
       {
         let max = sortedArray[i];
         sortedArray[i] = sortedArray[j];
