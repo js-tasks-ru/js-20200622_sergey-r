@@ -5,18 +5,9 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-  let sortedArray = arr.slice();
-  let compareRes = {'asc': -1, 'desc': 1}
-  for (let i = 0; i < sortedArray.length; i++) {
-    for (let j = 0; j < sortedArray.length; j++) {
-      if (sortedArray[i].localeCompare(sortedArray[j], [], {'caseFirst':  'upper'}) === compareRes[param])
-      {
-        let max = sortedArray[i];
-        sortedArray[i] = sortedArray[j];
-        sortedArray[j] = max;
-      }
-    }
-  };
+  const compareRes = {'asc': 1, 'desc': -1};
 
-  return sortedArray;
+  return [...arr].sort( (string1, string2) =>
+    compareRes[param] * string1.localeCompare(string2, [], {'caseFirst':  'upper'})
+  );
 }
