@@ -88,7 +88,7 @@ export default class SortableTable {
       }
     });
 
-    this.subElements.body.innerHTML = this.bodyTpl;
+    this.subElements.body.innerHTML = this.bodyRows;
   }
 
   getSubElements(element) {
